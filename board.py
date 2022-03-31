@@ -125,6 +125,7 @@ class Board:
             copy.perform_move(move)
 
             king_found = False
+
             for x in range(Board.WIDTH):
                 for y in range(Board.HEIGHT):
                     piece = copy.chesspieces[x][y]
@@ -150,8 +151,10 @@ class Board:
     def to_string(self):
         string = "    A  B  C  D  E  F  G  H\n"
         string += "    -----------------------\n"
+
         for y in range(Board.HEIGHT):
             string += str(8 - y) + " | "
+
             for x in range(Board.WIDTH):
                 piece = self.chesspieces[x][y]
                 if (piece != 0):
@@ -159,4 +162,5 @@ class Board:
                 else:
                     string += ".. "
             string += "\n"
+        
         return string + "\n"

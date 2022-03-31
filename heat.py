@@ -71,12 +71,16 @@ class Heuristics:
 
         pawns = Heuristics.get_piece_position_score(
             board, pieces.Pawn.PIECE_TYPE, Heuristics.PAWN_TABLE)
+
         knights = Heuristics.get_piece_position_score(
             board, pieces.Knight.PIECE_TYPE, Heuristics.KNIGHT_TABLE)
+
         bishops = Heuristics.get_piece_position_score(
             board, pieces.Bishop.PIECE_TYPE, Heuristics.BISHOP_TABLE)
+
         rooks = Heuristics.get_piece_position_score(
             board, pieces.Rook.PIECE_TYPE, Heuristics.ROOK_TABLE)
+
         queens = Heuristics.get_piece_position_score(
             board, pieces.Queen.PIECE_TYPE, Heuristics.QUEEN_TABLE)
 
@@ -89,6 +93,7 @@ class Heuristics:
     def get_piece_position_score(board, piece_type, table):
         white = 0
         black = 0
+
         for x in range(8):
             for y in range(8):
                 piece = board.chesspieces[x][y]
@@ -105,6 +110,7 @@ class Heuristics:
     def get_material_score(board):
         white = 0
         black = 0
+
         for x in range(8):
             for y in range(8):
                 piece = board.chesspieces[x][y]

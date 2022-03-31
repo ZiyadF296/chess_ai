@@ -45,6 +45,7 @@ def get_valid_user_move(board):
             break
         else:
             print("Invalid move.")
+    
     return move
 
 # Converts a letter (A-H) to the x position on the chess board.

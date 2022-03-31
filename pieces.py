@@ -26,6 +26,7 @@ class Piece():
 
             piece = board.get_piece(self.x+i, self.y+i)
             moves.append(self.get_move(board, self.x+i, self.y+i))
+
             if (piece != 0):
                 break
 
@@ -44,6 +45,7 @@ class Piece():
 
             piece = board.get_piece(self.x-i, self.y-i)
             moves.append(self.get_move(board, self.x-i, self.y-i))
+            
             if (piece != 0):
                 break
 
@@ -101,6 +103,7 @@ class Piece():
     # being eaten.
     def get_move(self, board, xto, yto):
         move = 0
+        
         if (board.in_bounds(xto, yto)):
             piece = board.get_piece(xto, yto)
             if (piece != 0):
@@ -108,6 +111,7 @@ class Piece():
                     move = Move(self.x, self.y, xto, yto, False)
             else:
                 move = Move(self.x, self.y, xto, yto, False)
+        
         return move
 
     # Returns the list of moves cleared of all the 0's.
@@ -225,6 +229,7 @@ class King(Piece):
             return 0
 
         piece = board.get_piece(self.x, self.y-3)
+        
         if (piece != 0):
             if (piece.color == self.color and piece.piece_type == Rook.PIECE_TYPE):
                 if (board.get_piece(self.x, self.y-1) == 0 and board.get_piece(self.x, self.y-2) == 0):
@@ -239,6 +244,7 @@ class King(Piece):
             return 0
 
         piece = board.get_piece(self.x, self.y+4)
+       
         if (piece != 0):
             if (piece.color == self.color and piece.piece_type == Rook.PIECE_TYPE):
                 if (board.get_piece(self.x, self.y+1) == 0 and board.get_piece(self.x, self.y+2) == 0 and board.get_piece(self.x, self.y+3) == 0):
@@ -282,10 +288,12 @@ class Pawn(Piece):
 
         # Eating pieces.
         piece = board.get_piece(self.x + 1, self.y + direction)
+        
         if (piece != 0):
             moves.append(self.get_move(board, self.x + 1, self.y + direction))
 
         piece = board.get_piece(self.x - 1, self.y + direction)
+        
         if (piece != 0):
             moves.append(self.get_move(board, self.x - 1, self.y + direction))
 
