@@ -1,4 +1,5 @@
 import board
+from move import Move
 import pieces
 import ai
 
@@ -17,7 +18,7 @@ def get_user_move():
         xto = letter_to_x_pos(move_str[2:3])
         # The board is drawn "upside down", so flip the y coordinate.
         yto = 8 - int(move_str[3:4])
-        return ai.Move(x_from, y_from, xto, yto, False)
+        return Move(x_from, y_from, xto, yto, False)
     except ValueError:
         print("Invalid format. Example: A2 A4")
         return get_user_move()
