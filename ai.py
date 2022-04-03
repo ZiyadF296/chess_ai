@@ -32,7 +32,7 @@ class AI:
         copy = board.Board.clone(chessboard)
         copy.perform_move(best_move)
 
-        if (copy.is_check(pieces.Piece.BLACK)):
+        if (copy.is_checkmate(pieces.Piece.BLACK)):
             invalid_moves.append(best_move)
             return AI.get_ai_move(chessboard, invalid_moves)
 
@@ -109,3 +109,17 @@ class AI:
                     break
 
             return best_score
+
+
+x = 1
+
+chesspieces = [
+    [pieces.Rook.BLACK, 0],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+]

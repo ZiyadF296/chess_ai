@@ -11,13 +11,25 @@ def get_user_move():
     move_str = input("Your Move: ")
     move_str = move_str.replace(" ", "")
 
+    # Stage 1 (before)
+    # x_from = A
+    # y_from = 2
+    # Stage 2 (after)
+    # x_to = A
+    # y_to = 3
+
     try:
+        # ---- FROM ----
         x_from = letter_to_x_pos(move_str[0:1])
         # The board is drawn "upside down", so flip the y coordinate.
         y_from = 8 - int(move_str[1:2])
+
+        # ---- TO ----
         xto = letter_to_x_pos(move_str[2:3])
         # The board is drawn "upside down", so flip the y coordinate.
         yto = 8 - int(move_str[3:4])
+        
+        # Separate class to handle the move
         return Move(x_from, y_from, xto, yto, False)
     except ValueError:
         print("Invalid format. Example: A2 A4")
@@ -82,7 +94,7 @@ print(board.to_string())
 while True:
     move = get_valid_user_move(board)
     if (move == 0):
-        if (board.is_check(pieces.Piece.WHITE)):
+        if (board.is_checkmate(pieces.Piece.WHITE)):
             print("Checkmate. Black Wins.")
             break
         else:
@@ -96,7 +108,7 @@ while True:
 
     ai_move = ai.AI.get_ai_move(board, [])
     if (ai_move == 0):
-        if (board.is_check(pieces.Piece.BLACK)):
+        if (board.is_checkmate(pieces.Piece.BLACK)):
             print("Checkmate. White wins.")
             break
         else:

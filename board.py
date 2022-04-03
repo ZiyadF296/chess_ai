@@ -96,6 +96,10 @@ class Board:
                 self.chesspieces[piece.x][piece.y] = pieces.Queen(
                     piece.x, piece.y, piece.color)
 
+        # Castling is a move in the game of chess in which a player moves their king
+        # two squares toward a rook on the same rank and moves the rook to the square
+        # that the king has crossed. It is the only move in chess in which a player
+        # moves two pieces in the same move.
         if (move.castling_move):
             if (move.xto < move.x_from):
                 rook = self.chesspieces[move.x_from][0]
@@ -115,7 +119,7 @@ class Board:
                 self.black_king_moved = True
 
     # Returns if the given color is checked.
-    def is_check(self, color):
+    def is_checkmate(self, color):
         other_color = pieces.Piece.WHITE
         if (color == pieces.Piece.WHITE):
             other_color = pieces.Piece.BLACK
@@ -161,6 +165,7 @@ class Board:
                     string += piece.to_string()
                 else:
                     string += ".. "
+            
             string += "\n"
-        
+
         return string + "\n"

@@ -23,3 +23,7 @@ Each piece has a subclass inside the main class (Piece). Each subclass contain s
 
 ### Disclaimer:
 Some of the code logic is based on online article since they are the best sources for chess moves logic (as I don't really know how to play chess and what are considered valid moves). This is used to validate the chess AI move when it makes a move and let it retry, or when the player makes an invalid move.
+
+### How to run the program?
+To get started, make sure that you run the `config.bat` script to ensure that external libraries are installed. After that, run the following command:
+    `python main.py`
