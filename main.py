@@ -28,7 +28,7 @@ def get_user_move():
         xto = letter_to_x_pos(move_str[2:3])
         # The board is drawn "upside down", so flip the y coordinate.
         yto = 8 - int(move_str[3:4])
-        
+
         # Separate class to handle the move
         return Move(x_from, y_from, xto, yto, False)
     except ValueError:
@@ -57,7 +57,7 @@ def get_valid_user_move(board):
             break
         else:
             print("Invalid move.")
-    
+
     return move
 
 # Converts a letter (A-H) to the x position on the chess board.

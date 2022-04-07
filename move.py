@@ -1,5 +1,4 @@
 class Move:
-
     def __init__(self, x_from, y_from, xto, yto, castling_move):
         self.x_from = x_from
         self.y_from = y_from

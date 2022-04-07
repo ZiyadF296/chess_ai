@@ -109,17 +109,3 @@ class AI:
                     break
 
             return best_score
-
-
-x = 1
-
-chesspieces = [
-    [pieces.Rook.BLACK, 0],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-]
